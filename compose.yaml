@@ -1,0 +1,36 @@
+services:
+  app:
+    container_name: "app"
+    build: .
+    ports:
+      - "3000:3000"
+    networks: 
+        - rede-aplicacao
+    depends_on:
+        - "postgres"
+
+  postgres:
+    container_name: "pgDatabase"
+    image: "postgres:12-bullseye"
+    environment:
+      POSTGRES_USER: "aluno"
+      POSTGRES_PASSWORD: "aluno"
+    networks: 
+        - rede-aplicacao
+    restart: unless-stopped
+#  Não vi necessidade de expor a porta do banco
+#    ports:
+#      - "5432:5432"
+
+  webserver:
+    container_name: "nginxServer"
+    image: "nginx"
+    ports:
+        - "81:80"
+    networks: 
+        - rede-aplicacao
+
+networks:
+  rede-aplicacao:
+    name: rede-aplicacao
+    driver: bridge
