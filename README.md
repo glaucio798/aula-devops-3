@@ -30,3 +30,12 @@ que nos retorna:
 ```
 
 
+## Exercicio 2
+
+`Dockerfile` e `app.js` que se encontram aqui
+
+## Execicio 3
+
+`compose.yaml` que também se encontra aqui
+
+obs: o arquivo `docker-compose` e um binario com o docker-compose que tive que baixar pq no laboratório da aula não tem pemissão pra instalar o compose
